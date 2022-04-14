@@ -30,6 +30,10 @@ De esa manera podria hacer que el metodo retorne algun valor y evitar el uso de 
 
 8. Agregar probabilidad de fallo al metodo para disparar al enemigo.
 9. PRUEBA GIT.
+<<<<<<< OURS
+10. Prueba branch 2.
+=======
+>>>>>>> THEIRS
  */
 public class Jarvis {
 

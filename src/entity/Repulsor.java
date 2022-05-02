@@ -1,34 +1,33 @@
 package entity;
 
-public class Repulsor {
-    private Double energia;
-    public Boolean danado = false;
+import utility.Dispositivos;
+
+public class Repulsor extends Dispositivo{
+    
+    private Integer potencia;
 
     public Repulsor() {
     }
 
-    public Repulsor(Double energia) {
-        this.energia = energia;
+    public Repulsor(Integer potencia) {
+        this.potencia = potencia;
     }
 
-    public Double getEnergia() {
-        return energia;
+    public Repulsor(Integer potencia, Dispositivos tipo, Double energia) {
+        super(tipo, energia);
+        this.potencia = potencia;
     }
 
-    public void setEnergia(Double energia) {
-        this.energia = energia;
+    public Integer getPotencia() {
+        return potencia;
     }
 
-    public Boolean getDanado() {
-        return danado;
-    }
-
-    public void setDanado(Boolean danado) {
-        this.danado = danado;
+    public void setPotencia(Integer potencia) {
+        this.potencia = potencia;
     }
 
     @Override
     public String toString() {
-        return "Repulsor [" + "Consumo de energia por uso: " + energia + "| Danado: " + danado + ']';
+        return super.toString() + " - Repulsor [" + "Potencia: " + potencia + ']';
     }
 }

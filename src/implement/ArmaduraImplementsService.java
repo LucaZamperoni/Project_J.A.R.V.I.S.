@@ -1,15 +1,15 @@
 package implement;
 
 import entity.Armadura;
-import entity.Consola;
+import entity.Dispositivo;
 import entity.Generador;
-import entity.Propulsor;
 import entity.Repulsor;
-import entity.Sintetizador;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import utility.Colores;
+import utility.Dispositivos;
 import utility.Estados;
 
 public class ArmaduraImplementsService {
@@ -48,20 +48,20 @@ public class ArmaduraImplementsService {
         armadura.setResistencia(br.readLine());
         armadura.setSalud(100d);
         
-        armadura.setPropulsor1(new Propulsor(15d));
-        armadura.setPropulsor2(new Propulsor(15d));
-        
-        armadura.setRepulsor1(new Repulsor(10d));
-        armadura.setRepulsor2(new Repulsor(10d));
+        ArrayList<Dispositivo> dispositivos = new ArrayList();
+        dispositivos.add(new Dispositivo(Dispositivos.PROPULSOR, 10d));
+        dispositivos.add(new Dispositivo(Dispositivos.PROPULSOR, 10d));
+        dispositivos.add(new Repulsor(1000, Dispositivos.REPULSOR, 10d));
+        dispositivos.add(new Repulsor(1000, Dispositivos.REPULSOR, 10d));
+        dispositivos.add(new Dispositivo(Dispositivos.CONSOLA, 5d));
+        dispositivos.add(new Dispositivo(Dispositivos.SINTETIZADOR, 5d));
+        armadura.setDispositivos(dispositivos);
         
         System.out.println("GENERADOR: ");
         System.out.print("Version del reactor ark: " );
         String version = br.readLine();
         Generador generador = new Generador(version, Estados.PERFECTO, 10000d);
         armadura.setGenerador(generador);
-        
-        armadura.setSintetizador(new Sintetizador(1d));
-        armadura.setConsola(new Consola(1d));
         
         return armadura;
     }
